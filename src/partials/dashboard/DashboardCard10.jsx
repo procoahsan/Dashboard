@@ -1,3 +1,7 @@
+
+import PriceSparkline from "../../components/Curve";
+
+
 function DashboardCard10() {
   const tokens = [
     {
@@ -152,15 +156,25 @@ function DashboardCard10() {
                     </div>
                   </td>
                   <td className="p-2 whitespace-nowrap text-center  ">
+
+                    <div className="flex flex-col">
+
+                   
                     <div className="flex justify-between">
                       <div className=" font-bold" >{token.circulatingSupply}</div>
                       <div className="text-xs">{token.supplyPercent}</div>
+                     
                     </div>
-                  
-                   
+                   <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div class="bg-blue-600 h-1.5 rounded-full" style={{width:token.supplyPercent}}></div>
+                  </div>
+                    </div>
                   </td>
                   <td className="p-2 whitespace-nowrap text-center">
-                    {/* Dummy SVG for 24h Curve */}
+                  <PriceSparkline 
+    startPrice={parseFloat(token.price.replace("$", ""))}
+    trend={token.priceChange24h.startsWith("-") ? "down" : "up"}
+  />
                     
                   </td>
                 </tr>
