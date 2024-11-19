@@ -10,6 +10,7 @@ function Header({
   sidebarOpen,
   setSidebarOpen,
   variant = 'default',
+  title
 }) {
 
   const [searchModalOpen, setSearchModalOpen] = useState(false)
@@ -23,7 +24,7 @@ function Header({
           <div className="flex">
 
           <div className="mb-4 sm:mb-0">
-                <h1 className="text-2xl md:flex hidden  lg:text-3xl md:text-3xl text-gray-800 dark:text-gray-100 font-semibold">Markets</h1>
+                <h1 className="text-2xl md:flex hidden  lg:text-3xl md:text-3xl text-gray-800 dark:text-gray-100 font-semibold">{title}</h1>
               </div>
 
             {/* Hamburger button */}

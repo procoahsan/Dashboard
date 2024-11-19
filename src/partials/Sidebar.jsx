@@ -230,7 +230,7 @@ function Sidebar({
                         className={`shrink-0 fill-current ${
                           pathname.includes("dashboard")
                             ? "text-white"
-                            : "text-gray-400 dark:text-gray-500"
+                            : "text-gray-900 dark:text-gray-500"
                         }`}
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"

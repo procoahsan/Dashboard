@@ -1,8 +1,21 @@
 
 import PriceSparkline from "../../components/Curve";
+import { useState } from "react";
 
 
 function DashboardCard10() {
+  const [filters, setFilters] = useState(false);
+
+  // State to hold filter values
+  const [filterValues, setFilterValues] = useState({
+    price: { from: "", to: "" },
+    marketCap: { from: "", to: "" },
+    volume: { from: "", to: "" },
+    socialFollowing: { from: "", to: "" },
+    socialInteractions: { from: "", to: "" },
+    circulatingSupply: { from: "", to: "" },
+  });
+
   const tokens = [
     {
       icon: "https://cryptologos.cc/logos/bitcoin-btc-logo.png?v=023", // Online icon for Bitcoin
@@ -57,6 +70,39 @@ function DashboardCard10() {
     },
   ];
 
+  // Helper function to parse numeric values
+  const parseValue = (value) => parseFloat(value.replace(/[$B]/g, "")) || 0;
+
+  // Function to apply filters
+  const applyFilters = () => {
+    return tokens.filter((token) => {
+      return (
+        (!filterValues.price.from || token.priceNumeric >= parseFloat(filterValues.price.from)) &&
+        (!filterValues.price.to || token.priceNumeric <= parseFloat(filterValues.price.to)) &&
+        (!filterValues.marketCap.from || token.marketCapNumeric >= parseFloat(filterValues.marketCap.from)) &&
+        (!filterValues.marketCap.to || token.marketCapNumeric <= parseFloat(filterValues.marketCap.to)) &&
+        (!filterValues.volume.from || token.volumeNumeric >= parseFloat(filterValues.volume.from)) &&
+        (!filterValues.volume.to || token.volumeNumeric <= parseFloat(filterValues.volume.to)) &&
+        (!filterValues.socialFollowing.from || token.socialFollowing >= parseFloat(filterValues.socialFollowing.from)) &&
+        (!filterValues.socialFollowing.to || token.socialFollowing <= parseFloat(filterValues.socialFollowing.to)) &&
+        (!filterValues.socialInteractions.from || token.socialInteractions >= parseFloat(filterValues.socialInteractions.from)) &&
+        (!filterValues.socialInteractions.to || token.socialInteractions <= parseFloat(filterValues.socialInteractions.to)) &&
+        (!filterValues.circulatingSupply.from || token.circulatingSupply >= parseFloat(filterValues.circulatingSupply.from)) &&
+        (!filterValues.circulatingSupply.to || token.circulatingSupply <= parseFloat(filterValues.circulatingSupply.to))
+      );
+    });
+  };
+
+  // Update filter value state
+  const handleFilterChange = (key, field, value) => {
+    setFilterValues((prev) => ({
+      ...prev,
+      [key]: { ...prev[key], [field]: value },
+    }));
+  };
+
+  const filteredTokens = applyFilters();
+
   return (
     <div className="col-span-full xl:col-span-full bg-white dark:bg-gray-800 shadow-sm rounded-xl">
       <header className="px-5 py-4 border-b border-gray-100 dark:border-gray-700/60 flex justify-between">
@@ -64,7 +110,9 @@ function DashboardCard10() {
           All Tokens
         </h2>
         <div>
-        <button className="bg-blue-600 flex items-center justify-center p-2 gap-1 text-md text-white rounded-lg">
+        <button className="bg-blue-600 flex items-center justify-center p-2 gap-1 text-md text-white rounded-lg"
+        onClick={() => setFilters(!filters)}
+        >
           <span>
             
           </span>
@@ -107,25 +155,167 @@ function DashboardCard10() {
                 </th>
                 <th className="p-2 whitespace-nowrap"></th>
                 <th className="p-2 whitespace-nowrap text-left">Token</th>
-                <th className="p-2 whitespace-nowrap text-left">Price</th>
-                <th className="p-2 whitespace-nowrap text-left">Market Cap</th>
-                <th className="p-2 whitespace-nowrap text-center">Volume</th>
+                <th className="p-2 whitespace-nowrap text-left ">
+                  Price
+
+                  {
+                    filters && (
+                      <div className="flex flex-col gap-2">
+                      <input
+                        type="number"
+                        placeholder="From"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("price", "from", e.target.value)
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="To"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("price", "to", e.target.value)
+                        }
+                      />
+                    </div>
+                    )
+                  }
+                 
+
+                  
+                  
+                  </th>
+                <th className="p-2 whitespace-nowrap text-left">Market Cap
+                {
+                    filters && (
+                      <div className="flex flex-col gap-2">
+                      <input
+                        type="number"
+                        placeholder="From"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("marketCap", "from", e.target.value)
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="To"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("marketCap", "to", e.target.value)
+                        }
+                      />
+                    </div>
+                    )
+                  }
+                </th>
+                <th className="p-2 whitespace-nowrap text-center">Volume
+                {
+                    filters && (
+                      <div className="flex flex-col gap-2">
+                      <input
+                        type="number"
+                        placeholder="From"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("volume", "from", e.target.value)
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="To"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("volume", "to", e.target.value)
+                        }
+                      />
+                    </div>
+                    )
+                  }
+                </th>
                 <th className="p-2 whitespace-nowrap text-center">
                   Social Following
+                  {
+                    filters && (
+                      <div className="flex flex-col gap-2">
+                      <input
+                        type="number"
+                        placeholder="From"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("socialFollowing", "from", e.target.value)
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="To"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("socialFollowing", "to", e.target.value)
+                        }
+                      />
+                    </div>
+                    )
+                  }
                 </th>
                 <th className="p-2 whitespace-nowrap"></th>
                 <th className="p-2 whitespace-nowrap text-center">
                   Social Interactions
+                  {
+                    filters && (
+                      <div className="flex flex-col gap-2">
+                      <input
+                        type="number"
+                        placeholder="From"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("socialInteractions", "from", e.target.value)
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="To"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("socialInteractions", "to", e.target.value)
+                        }
+                      />
+                    </div>
+                    )
+                  }
                 </th>
                 <th className="p-2 whitespace-nowrap"></th>
                 <th className="p-2 whitespace-nowrap text-center">
                   Circulating Supply
+                  {
+                    filters && (
+                      <div className="flex flex-col gap-2">
+                      <input
+                        type="number"
+                        placeholder="From"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("circulatingSupply", "from", e.target.value)
+                        }
+                      />
+                      <input
+                        type="number"
+                        placeholder="To"
+                        className="h-5 w-16 text-xs"
+                        onChange={(e) =>
+                          handleFilterChange("circulatingSupply", "to", e.target.value)
+                        }
+                      />
+                    </div>
+                    )
+                  }
                 </th>
                 <th className="p-2 whitespace-nowrap text-center">24h Curve</th>
               </tr>
             </thead>
+             
             <tbody className="text-sm">
-              {tokens.map((token, index) => (
+              {filteredTokens.map((token, index) => (
                 <tr key={index}>
                   <td className="p-2 whitespace-nowrap">
                     <svg
@@ -279,7 +469,7 @@ function DashboardCard10() {
                       </div>
                       <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
                         <div
-                          class="bg-blue-600 h-1.5 rounded-full"
+                          class="bg-blue-600 h-full rounded-full"
                           style={{ width: token.supplyPercent }}
                         ></div>
                       </div>
