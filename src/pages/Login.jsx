@@ -38,7 +38,7 @@ const Login = () => {
   };
 
   return (
-    <section className='h-screen bg_login text-white flex justify-center items-center'>
+    <section className='h-screen bg bg-black text-white flex justify-center items-center'>
       <div className="lg:w-[50%] xl:w-[30%] bg-white py-10 rounded-[15px] px-5">
         <h1 className="text-3xl text-center text-primary font-semibold">
           {isSignup ? 'Sign up' : 'Login'}
@@ -95,7 +95,7 @@ const Login = () => {
           <Link to={"/dashboard"} className="pt-5">
             <button
               type="submit"
-              className='uppercase bg-primary h-12 px-3 rounded-full w-full'
+              className='uppercase bg-blue-600 h-12 px-3 rounded-full w-full'
             >
               {isSignup ? 'Sign up' : 'Login'}
             </button>
