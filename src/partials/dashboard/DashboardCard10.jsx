@@ -59,8 +59,32 @@ function DashboardCard10() {
 
   return (
     <div className="col-span-full xl:col-span-full bg-white dark:bg-gray-800 shadow-sm rounded-xl">
-      <header className="px-5 py-4 border-b border-gray-100 dark:border-gray-700/60">
-        <h2 className="font-semibold text-lg text-gray-800 dark:text-gray-100">All Tokens</h2>
+      <header className="px-5 py-4 border-b border-gray-100 dark:border-gray-700/60 flex justify-between">
+        <h2 className="font-semibold text-lg text-gray-800 dark:text-gray-100">
+          All Tokens
+        </h2>
+        <div>
+        <button className="bg-blue-600 flex items-center justify-center p-2 gap-1 text-md text-white rounded-lg">
+          <span>
+            
+          </span>
+  Filters
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="17"
+    height="17"
+    className="text-white"
+    viewBox="0 0 17 17"
+  >
+    <path
+      d="M11.5 13l3-3M1 1h9.75M1 4h6.75M1 7h6.75M11.5 4v9M11.5 13l-3-3"
+      stroke="currentColor"
+      strokeWidth="1.2"
+    />
+  </svg>
+</button>
+
+        </div>
       </header>
       <div className="p-3">
         <div className="overflow-x-auto">
@@ -68,18 +92,35 @@ function DashboardCard10() {
             <thead className="text-xs font-semibold uppercase text-black dark:text-white dark:bg-opacity-50">
               <tr>
                 <th className="p-2 whitespace-nowrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" fill="none"><path fill="#2B7AFF" stroke="#2B7AFF" d="m1.272 6.732.294-.405-.294.405 3.916 2.844-1.496 4.603c-.173.534.438.979.893.648L8.5 11.983l3.915 2.844c.455.33 1.067-.114.893-.648l-1.496-4.603 3.916-2.844c.454-.33.22-1.05-.341-1.05h-4.84L9.052 1.08c-.174-.535-.93-.535-1.104 0L6.453 5.682h-4.84c-.562 0-.795.72-.34 1.05Zm5.087-.76.399.13-.4-.13Z"></path></svg>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="17"
+                    height="16"
+                    fill="none"
+                  >
+                    <path
+                      fill="#2B7AFF"
+                      stroke="#2B7AFF"
+                      d="m1.272 6.732.294-.405-.294.405 3.916 2.844-1.496 4.603c-.173.534.438.979.893.648L8.5 11.983l3.915 2.844c.455.33 1.067-.114.893-.648l-1.496-4.603 3.916-2.844c.454-.33.22-1.05-.341-1.05h-4.84L9.052 1.08c-.174-.535-.93-.535-1.104 0L6.453 5.682h-4.84c-.562 0-.795.72-.34 1.05Zm5.087-.76.399.13-.4-.13Z"
+                    ></path>
+                  </svg>
                 </th>
                 <th className="p-2 whitespace-nowrap"></th>
                 <th className="p-2 whitespace-nowrap text-left">Token</th>
                 <th className="p-2 whitespace-nowrap text-left">Price</th>
                 <th className="p-2 whitespace-nowrap text-left">Market Cap</th>
                 <th className="p-2 whitespace-nowrap text-center">Volume</th>
-                <th className="p-2 whitespace-nowrap text-center">Social Following</th>
+                <th className="p-2 whitespace-nowrap text-center">
+                  Social Following
+                </th>
                 <th className="p-2 whitespace-nowrap"></th>
-                <th className="p-2 whitespace-nowrap text-center">Social Interactions</th>
+                <th className="p-2 whitespace-nowrap text-center">
+                  Social Interactions
+                </th>
                 <th className="p-2 whitespace-nowrap"></th>
-                <th className="p-2 whitespace-nowrap text-center">Circulating Supply</th>
+                <th className="p-2 whitespace-nowrap text-center">
+                  Circulating Supply
+                </th>
                 <th className="p-2 whitespace-nowrap text-center">24h Curve</th>
               </tr>
             </thead>
@@ -87,95 +128,170 @@ function DashboardCard10() {
               {tokens.map((token, index) => (
                 <tr key={index}>
                   <td className="p-2 whitespace-nowrap">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="none"><path stroke="#2B7AFF" stroke-width="1.5" d="m7.71 2.002-1.439 4.43H1.613c-.804 0-1.138 1.03-.488 1.502l.441-.607-.44.607 3.768 2.738-1.44 4.43c-.248.764.627 1.4 1.278.928L8.5 13.292l3.768 2.738c.65.472 1.526-.164 1.278-.928l-.714.232.714-.232-1.44-4.43 3.769-2.738c.65-.473.316-1.502-.488-1.502h-4.658l-1.44-4.43c-.248-.764-1.33-.764-1.578 0Zm-2.422 8.956.393-.542-.393.542Zm6.668-.75v.001Zm-1.077-3.313-.637.207.637-.207Z"></path></svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="17"
+                      height="17"
+                      fill="none"
+                    >
+                      <path
+                        stroke="#2B7AFF"
+                        stroke-width="1.5"
+                        d="m7.71 2.002-1.439 4.43H1.613c-.804 0-1.138 1.03-.488 1.502l.441-.607-.44.607 3.768 2.738-1.44 4.43c-.248.764.627 1.4 1.278.928L8.5 13.292l3.768 2.738c.65.472 1.526-.164 1.278-.928l-.714.232.714-.232-1.44-4.43 3.769-2.738c.65-.473.316-1.502-.488-1.502h-4.658l-1.44-4.43c-.248-.764-1.33-.764-1.578 0Zm-2.422 8.956.393-.542-.393.542Zm6.668-.75v.001Zm-1.077-3.313-.637.207.637-.207Z"
+                      ></path>
+                    </svg>
                   </td>
                   <td className="p-2 whitespace-nowrap">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="17" fill="none"><path stroke="#2B7AFF" stroke-width="1.5" d="M4.333 8.5h5m-5 3.333h5M11 16H2.667A1.667 1.667 0 0 1 1 14.333V2.667A1.667 1.667 0 0 1 2.667 1h4.655c.22 0 .433.088.589.244l4.512 4.512a.834.834 0 0 1 .244.589v7.988A1.666 1.666 0 0 1 11 16Z"></path></svg>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="14"
+                      height="17"
+                      fill="none"
+                    >
+                      <path
+                        stroke="#2B7AFF"
+                        stroke-width="1.5"
+                        d="M4.333 8.5h5m-5 3.333h5M11 16H2.667A1.667 1.667 0 0 1 1 14.333V2.667A1.667 1.667 0 0 1 2.667 1h4.655c.22 0 .433.088.589.244l4.512 4.512a.834.834 0 0 1 .244.589v7.988A1.666 1.666 0 0 1 11 16Z"
+                      ></path>
+                    </svg>
                   </td>
                   <td className="p-2 whitespace-nowrap flex items-center   gap-3">
-                  <img src={token.icon} alt={`${token.name} icon`} className="w-10 h-10 rounded-full" />
-                  <div className="flex flex-col">
-                      <div className="font-medium text-gray-800 dark:text-white">{token.name}</div>
-                    <div className="text-xs text-gray-500">{token.symbol}</div>
-                    
-                  </div>
-                  
+                    <img
+                      src={token.icon}
+                      alt={`${token.name} icon`}
+                      className="w-10 h-10 rounded-full"
+                    />
+                    <div className="flex flex-col">
+                      <div className="font-medium text-gray-800 dark:text-white">
+                        {token.name}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {token.symbol}
+                      </div>
+                    </div>
                   </td>
                   <td className="p-2 whitespace-nowrap">
                     <div className="font-semibold">{token.price}</div>
                     <div className="text-xs">
-                      <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time24h}</span>{" "}
-                      <span className="text-red-500">{token.priceChange24h}</span>{" "}
-                      <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time7h}</span>{" "}
-                      <span className="text-green-500">{token.priceChange7h}</span>
+                      <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                        {token.time24h}
+                      </span>{" "}
+                      <span className="text-red-500">
+                        {token.priceChange24h}
+                      </span>{" "}
+                      <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                        {token.time7h}
+                      </span>{" "}
+                      <span className="text-green-500">
+                        {token.priceChange7h}
+                      </span>
                     </div>
                   </td>
                   <td className="p-2 whitespace-nowrap">{token.marketCap}</td>
                   <td className="p-2 whitespace-nowrap text-center ">
                     <div>{token.volume}</div>
-                    
-                    <div className="text-xs text-green-500"><span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time24h}</span>{" "}{token.volumeChange24h}</div>
+
+                    <div className="text-xs text-green-500">
+                      <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                        {token.time24h}
+                      </span>{" "}
+                      {token.volumeChange24h}
+                    </div>
                   </td>
                   <td className="p-2 whitespace-nowrap flex items-center   gap-3">
-                  <img src={token.discordIcon} alt={`${token.name} icon`} className="w-10 h-10 rounded-full" />
-                  <div className="flex flex-col">
-                    <div>{token.discordFollowers}</div>
-                    <div className="text-xs text-red-500"><span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time24h}</span>{" "}{token.discordChange24h}</div>
-                  </div>
+                    <img
+                      src={token.discordIcon}
+                      alt={`${token.name} icon`}
+                      className="w-10 h-10 rounded-full"
+                    />
+                    <div className="flex flex-col">
+                      <div>{token.discordFollowers}</div>
+                      <div className="text-xs text-red-500">
+                        <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                          {token.time24h}
+                        </span>{" "}
+                        {token.discordChange24h}
+                      </div>
+                    </div>
                   </td>
-                  
+
                   <td className="p-2 whitespace-nowrap text-center">
-                    <div className="flex items-center gap-3" >
-                      <img src={token.twitterIcon} alt={`${token.name} icon`} className="w-10 h-10 rounded-full" />
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={token.twitterIcon}
+                        alt={`${token.name} icon`}
+                        className="w-10 h-10 rounded-full"
+                      />
                       <div className="flex flex-col items-start">
-                    <div>{token.twitterFollowers}</div>
-                    <div className="text-xs text-red-500"><span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time24h}</span>{" "}{token.twitterChange24h}</div>
-                    </div>
-                    </div>
-                    
-                  </td>
-                  <td className="p-2 whitespace-nowrap text-center">
-                  <div className="flex items-center gap-3" >
-
-                  <img src={token.discordIcon} alt={`${token.name} icon`} className="w-10 h-10 rounded-full" />
-                  <div className="flex flex-col items-start">
-
-                    <div>{token.discordInteractions}</div>
-                    <div className="text-xs text-green-500"><span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time24h}</span>{" "}{token.discordInteractionsChange24h}</div>
-                    </div>
+                        <div>{token.twitterFollowers}</div>
+                        <div className="text-xs text-red-500">
+                          <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                            {token.time24h}
+                          </span>{" "}
+                          {token.twitterChange24h}
+                        </div>
+                      </div>
                     </div>
                   </td>
                   <td className="p-2 whitespace-nowrap text-center">
-                  <div className="flex items-center gap-3" >
-
-                  <img src={token.twitterIcon} alt={`${token.name} icon`} className="w-10 h-10 rounded-full" />
-                  <div className="flex flex-col items-start">
-                    <div>{token.twitterInteractions}</div>
-                    <div className="text-xs text-red-500"><span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">{token.time24h}</span>{" "}{token.twitterInteractionsChange24h}</div>
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={token.discordIcon}
+                        alt={`${token.name} icon`}
+                        className="w-10 h-10 rounded-full"
+                      />
+                      <div className="flex flex-col items-start">
+                        <div>{token.discordInteractions}</div>
+                        <div className="text-xs text-green-500">
+                          <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                            {token.time24h}
+                          </span>{" "}
+                          {token.discordInteractionsChange24h}
+                        </div>
+                      </div>
                     </div>
+                  </td>
+                  <td className="p-2 whitespace-nowrap text-center">
+                    <div className="flex items-center gap-3">
+                      <img
+                        src={token.twitterIcon}
+                        alt={`${token.name} icon`}
+                        className="w-10 h-10 rounded-full"
+                      />
+                      <div className="flex flex-col items-start">
+                        <div>{token.twitterInteractions}</div>
+                        <div className="text-xs text-red-500">
+                          <span className="text-[10px] text-black bg-slate-200 font-normal p-0.5">
+                            {token.time24h}
+                          </span>{" "}
+                          {token.twitterInteractionsChange24h}
+                        </div>
+                      </div>
                     </div>
                   </td>
                   <td className="p-2 whitespace-nowrap text-center  ">
-
                     <div className="flex flex-col">
-
-                   
-                    <div className="flex justify-between">
-                      <div className=" font-bold" >{token.circulatingSupply}</div>
-                      <div className="text-xs">{token.supplyPercent}</div>
-                     
-                    </div>
-                   <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                        <div class="bg-blue-600 h-1.5 rounded-full" style={{width:token.supplyPercent}}></div>
-                  </div>
+                      <div className="flex justify-between">
+                        <div className=" font-bold">
+                          {token.circulatingSupply}
+                        </div>
+                        <div className="text-xs">{token.supplyPercent}</div>
+                      </div>
+                      <div class="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                        <div
+                          class="bg-blue-600 h-1.5 rounded-full"
+                          style={{ width: token.supplyPercent }}
+                        ></div>
+                      </div>
                     </div>
                   </td>
                   <td className="p-2 whitespace-nowrap text-center">
-                  <PriceSparkline 
-    startPrice={parseFloat(token.price.replace("$", ""))}
-    trend={token.priceChange24h.startsWith("-") ? "down" : "up"}
-  />
-                    
+                    <PriceSparkline
+                      startPrice={parseFloat(token.price.replace("$", ""))}
+                      trend={
+                        token.priceChange24h.startsWith("-") ? "down" : "up"
+                      }
+                    />
                   </td>
                 </tr>
               ))}

@@ -211,7 +211,7 @@ function Sidebar({
               {/* Messages */}
               <li
                 className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${
-                  pathname.includes("messages") &&
+                  pathname.includes("dashboard") &&
                   "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"
                 }`}
               >
@@ -249,28 +249,28 @@ function Sidebar({
                   </div>
                 </NavLink>
               </li>
-              {/* Inbox */}
+              {/* watchlist */}
               <li
                 className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${
-                  pathname.includes("inbox") &&
+                  pathname.includes("watchlist") &&
                   "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"
                 }`}
               >
-                <NavLink
+                 <NavLink
                   end
-                  to="https://cruip.com/mosaic/"
-                  className={`block text-gray-800 px-4 dark:text-gray-100 truncate transition duration-150 ${
-                    pathname.includes("inbox")
-                      ? ""
+                  to="/watchlist"
+                  className={` h-10 rounded-md flex items-center px-4 text-gray-800 dark:text-gray-100 truncate transition duration-150 ${
+                    pathname.includes("watchlist")
+                      ? " bg-blue-500 text-white dark:bg-blue-500 dark:text-white"
                       : "hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
                   <div className="flex items-center">
                     <svg
                       className={`shrink-0 fill-current ${
-                        pathname.includes("inbox")
-                          ? "text-violet-500"
-                          : "text-gray-400 dark:text-gray-500"
+                        pathname.includes("watchlist")
+                           ? " bg-blue-500 text-white dark:bg-blue-500 dark:text-white"
+                      : "hover:text-gray-900 dark:hover:text-white"
                       }`}
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -280,33 +280,33 @@ function Sidebar({
                       <path d="M11.92 6.851c.044-.027.09-.05.137-.07.481-.275.758-.68.908-1.256.126-.55.169-.81.357-2.058.075-.498.144-.91.217-1.264-4.122.75-7.087 2.984-9.12 6.284a18.087 18.087 0 0 0-1.985 4.585 17.07 17.07 0 0 0-.354 1.506c-.05.265-.076.448-.086.535a1 1 0 0 1-1.988-.226c.056-.49.209-1.312.502-2.357a20.063 20.063 0 0 1 2.208-5.09C5.31 3.226 9.306.494 14.913.004a1 1 0 0 1 .954 1.494c-.237.414-.375.993-.567 2.267-.197 1.306-.244 1.586-.392 2.235-.285 1.094-.789 1.853-1.552 2.363-.748 3.816-3.976 5.06-8.515 4.326a1 1 0 0 1 .318-1.974c2.954.477 4.918.025 5.808-1.556-.628.085-1.335.121-2.127.121a1 1 0 1 1 0-2c1.458 0 2.434-.116 3.08-.429Z" />
                     </svg>
                     <span className="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Inbox
+                      Watchlist
                     </span>
                   </div>
                 </NavLink>
               </li>
-              {/* Calendar */}
+              {/* bot */}
               <li
                 className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${
-                  pathname.includes("calendar") &&
+                  pathname.includes("bot") &&
                   "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"
                 }`}
               >
                 <NavLink
                   end
-                  to="https://cruip.com/mosaic/"
-                  className={`block text-gray-800 px-4 dark:text-gray-100 truncate transition duration-150 ${
-                    pathname.includes("calendar")
-                      ? ""
+                  to="/bot"
+                  className={` h-10 rounded-md flex items-center px-4 text-gray-800 dark:text-gray-100 truncate transition duration-150 ${
+                    pathname.includes("bot")
+                      ? " bg-blue-500 text-white dark:bg-blue-500 dark:text-white"
                       : "hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
                   <div className="flex items-center">
                     <svg
                       className={`shrink-0 fill-current ${
-                        pathname.includes("calendar")
-                          ? "text-violet-500"
-                          : "text-gray-400 dark:text-gray-500"
+                        pathname.includes("bot")
+                           ? " bg-blue-500 text-white dark:bg-blue-500 dark:text-white"
+                      : "hover:text-gray-900 dark:hover:text-white"
                       }`}
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -318,33 +318,33 @@ function Sidebar({
                       <path d="M4 0a4 4 0 0 0-4 4v8a4 4 0 0 0 4 4h8a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4ZM2 4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Z" />
                     </svg>
                     <span className="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Calendar
+                      AI Training bots
                     </span>
                   </div>
                 </NavLink>
               </li>
-              {/* Campaigns */}
+              {/* wallet */}
               <li
                 className={`pl-4 pr-3 py-2 rounded-lg mb-0.5 last:mb-0 bg-[linear-gradient(135deg,var(--tw-gradient-stops))] ${
-                  pathname.includes("campaigns") &&
+                  pathname.includes("wallet") &&
                   "from-violet-500/[0.12] dark:from-violet-500/[0.24] to-violet-500/[0.04]"
                 }`}
               >
                 <NavLink
                   end
-                  to="https://cruip.com/mosaic/"
-                  className={`block text-gray-800 px-4 dark:text-gray-100 truncate transition duration-150 ${
-                    pathname.includes("campaigns")
-                      ? ""
+                  to="/wallet"
+                  className={` h-10 rounded-md flex items-center px-4 text-gray-800 dark:text-gray-100 truncate transition duration-150 ${
+                    pathname.includes("wallet")
+                      ? " bg-blue-500 text-white dark:bg-blue-500 dark:text-white"
                       : "hover:text-gray-900 dark:hover:text-white"
                   }`}
                 >
                   <div className="flex items-center">
                     <svg
                       className={`shrink-0 fill-current ${
-                        pathname.includes("campaigns")
-                          ? "text-violet-500"
-                          : "text-gray-400 dark:text-gray-500"
+                        pathname.includes("wallet")
+                           ? " bg-blue-500 text-white dark:bg-blue-500 dark:text-white"
+                      : "hover:text-gray-900 dark:hover:text-white"
                       }`}
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -354,7 +354,7 @@ function Sidebar({
                       <path d="M6.649 1.018a1 1 0 0 1 .793 1.171L6.997 4.5h3.464l.517-2.689a1 1 0 1 1 1.964.378L12.498 4.5h2.422a1 1 0 0 1 0 2h-2.807l-.77 4h2.117a1 1 0 1 1 0 2h-2.501l-.517 2.689a1 1 0 1 1-1.964-.378l.444-2.311H5.46l-.517 2.689a1 1 0 1 1-1.964-.378l.444-2.311H1a1 1 0 1 1 0-2h2.807l.77-4H2.46a1 1 0 0 1 0-2h2.5l.518-2.689a1 1 0 0 1 1.17-.793ZM9.307 10.5l.77-4H6.612l-.77 4h3.464Z" />
                     </svg>
                     <span className="text-sm font-medium ml-4 lg:opacity-0 lg:sidebar-expanded:opacity-100 2xl:opacity-100 duration-200">
-                      Campaigns
+                      Wallet
                     </span>
                   </div>
                 </NavLink>
