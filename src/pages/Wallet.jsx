@@ -240,10 +240,10 @@ export default function Wallet() {
                   style={{ width: "98.42%" }}
                 ></div>
                 {/* Labels */}
-                <div className="absolute top-0 left-0 transform -translate-y-full text-xs font-medium text-gray-700">
+                <div className="absolute top-0 left-0 transform dark:text-white -translate-y-full text-xs font-medium text-gray-700">
                   Ratio
                 </div>
-                <div className="absolute top-0 right-0 transform -translate-y-full text-xs font-medium text-gray-700">
+                <div className="absolute top-0 right-0 transform dark:text-white -translate-y-full text-xs font-medium text-gray-700">
                   98.42%
                 </div>
               </div>
@@ -269,10 +269,10 @@ export default function Wallet() {
                   style={{ width: "0.01%" }}
                 ></div>
                 {/* Labels */}
-                <div className="absolute top-0 left-0 transform -translate-y-full text-xs font-medium text-gray-700">
+                <div className="absolute top-0 left-0 transform dark:text-white -translate-y-full text-xs font-medium text-gray-700">
                   Ratio
                 </div>
-                <div className="absolute top-0 right-0 transform -translate-y-full text-xs font-medium text-gray-700">
+                <div className="absolute top-0 right-0 transform dark:text-white -translate-y-full text-xs font-medium text-gray-700">
                  0.01%
                 </div>
               </div>
@@ -298,10 +298,10 @@ export default function Wallet() {
                   style={{ width: "1.57%" }}
                 ></div>
                 {/* Labels */}
-                <div className="absolute top-0 left-0 transform -translate-y-full text-xs font-medium text-gray-700">
+                <div className="absolute top-0 left-0 transform dark:text-white -translate-y-full text-xs font-medium text-gray-700">
                   Ratio
                 </div>
-                <div className="absolute top-0 right-0 transform -translate-y-full text-xs font-medium text-gray-700">
+                <div className="absolute top-0 right-0 transform dark:text-white -translate-y-full text-xs font-medium text-gray-700">
                  1.57%
                 </div>
               </div>
