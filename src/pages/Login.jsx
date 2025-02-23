@@ -1,109 +1,94 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
-const Login = () => {
-  const [isSignup, setIsSignup] = useState(false);
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: '',
-  });
-  const [errors, setErrors] = useState({});
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validate = () => {
-    let formErrors = {};
-    if (isSignup && !formData.username.trim()) {
-      formErrors.username = 'Username is required';
-    }
-    if (!formData.email.trim()) {
-      formErrors.email = 'Email is required';
-    }
-    if (!formData.password.trim()) {
-      formErrors.password = 'Password is required';
-    }
-    return formErrors;
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const formErrors = validate();
-    setErrors(formErrors);
-    if (Object.keys(formErrors).length === 0) {
-      console.log('Form submitted', formData);
-    }
-  };
-
+const LandingPage = () => {
   return (
-    <section className='h-screen bg bg-black text-white flex justify-center items-center'>
-      <div className="lg:w-[50%] xl:w-[30%] bg-white py-10 rounded-[15px] px-5">
-        <h1 className="text-3xl text-center text-primary font-semibold">
-          {isSignup ? 'Sign up' : 'Login'}
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white">
+      {/* Header */}
+      <header className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <h1 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-500">
+          CryptoPulse
         </h1>
-        <form
-          onSubmit={handleSubmit}
-          className='my-3 flex flex-col gap-y-3 lg:w-[90%] xl:w-[90%] mx-auto'
-        >
-          {isSignup && (
-            <div className="space-y-2">
-              <label htmlFor="username" className="text-black">Username</label>
-              <input
-                type="text"
-                name='username'
-                className="bg-white px-3 border w-full text-black text-sm h-12 rounded-full"
-                value={formData.username}
-                onChange={handleChange}
-              />
-              {errors.username && <p className="text-red-500 text-sm">{errors.username}</p>}
+        <nav className="space-x-6">
+          <a href="#features" className="hover:text-purple-400 transition-colors">Features</a>
+          <a href="#about" className="hover:text-purple-400 transition-colors">About</a>
+        </nav>
+      </header>
+
+      {/* Hero Section */}
+      <main className="container mx-auto px-6 pt-20 pb-16 flex flex-col items-center text-center">
+        <h2 className="text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+          Track Your Crypto Journey
+          <span className="block text-purple-400 mt-2">In Real-Time</span>
+        </h2>
+        <p className="text-xl text-gray-300 mb-8 max-w-2xl">
+          Monitor your cryptocurrency portfolio, get market insights, and make informed decisions with our powerful dashboard.
+        </p>
+        <Link to="/dashboard">
+          <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            View Crypto Dashboard
+          </button>
+        </Link>
+
+        {/* Crypto Stats Preview */}
+        <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl w-full">
+          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+            <p className="text-gray-400">Market Cap</p>
+            <p className="text-2xl font-bold text-green-400">$2.45T</p>
+          </div>
+          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+            <p className="text-gray-400">24h Volume</p>
+            <p className="text-2xl font-bold text-blue-400">$98.7B</p>
+          </div>
+          <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700/50">
+            <p className="text-gray-400">BTC Dominance</p>
+            <p className="text-2xl font-bold text-purple-400">52.3%</p>
+          </div>
+        </div>
+      </main>
+
+      {/* Features Section */}
+      <section id="features" className="py-16 bg-gray-900/50">
+        <div className="container mx-auto px-6">
+          <h3 className="text-3xl font-bold text-center mb-12">Why Choose CryptoPulse?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center p-6">
+              <div className="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Real-Time Updates</h4>
+              <p className="text-gray-400">Get instant price updates and market trends.</p>
             </div>
-          )}
-          <div className="space-y-2">
-            <label htmlFor="email" className="text-black">Email</label>
-            <input
-              type="email"
-              name='email'
-              className="bg-white px-3 border w-full text-black text-sm h-12 rounded-full"
-              value={formData.email}
-              onChange={handleChange}
-            />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+            <div className="text-center p-6">
+              <div className="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                </svg>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Advanced Analytics</h4>
+              <p className="text-gray-400">Deep insights into market movements.</p>
+            </div>
+            <div className="text-center p-6">
+              <div className="bg-purple-600 w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4">
+                <svg className="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 11c0-2.21 1.79-4 4-4s4 1.79 4 4-1.79 4-4 4m-8 0c0-2.21-1.79-4-4-4S0 8.79 0 11s1.79 4 4 4m8 0c0 2.21-1.79 4-4 4s-4-1.79-4-4m8 0c0-2.21 1.79-4 4-4" />
+                </svg>
+              </div>
+              <h4 className="text-xl font-semibold mb-2">Portfolio Tracking</h4>
+              <p className="text-gray-400">Manage all your assets in one place.</p>
+            </div>
           </div>
-          <div className="space-y-2">
-            <label htmlFor="password" className="text-black">Password</label>
-            <input
-              type="password"
-              name='password'
-              className="bg-white px-3 border w-full text-black text-sm h-12 rounded-full"
-              value={formData.password}
-              onChange={handleChange}
-            />
-            {errors.password && <p className="text-red-500 text-sm">{errors.password}</p>}
-          </div>
-          <span className="text-primary text-sm text-center">
-            {isSignup ? 'Already have an account?' : "Don't have an account?"}
-            <button
-              type="button"
-              className='text-sm underline ml-1'
-              onClick={() => setIsSignup(!isSignup)}
-            >
-              {isSignup ? 'Login' : 'Sign up'}
-            </button>
-          </span>
-          <Link to={"/dashboard"} className="pt-5">
-            <button
-              type="submit"
-              className='uppercase bg-blue-600 h-12 px-3 rounded-full w-full'
-            >
-              {isSignup ? 'Sign up' : 'Login'}
-            </button>
-          </Link>
-        </form>
-      </div>
-    </section>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 text-center text-gray-400">
+        <p>&copy; 2025 CryptoPulse. All rights reserved.</p>
+      </footer>
+    </div>
   );
 };
 
-export default Login;
+export default LandingPage;
